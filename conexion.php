@@ -35,8 +35,9 @@ try {
     $fila = $stmt->fetch();
     echo "Conectado correctamente. Hora del servidor: " . $fila['fecha_actual'];
     $stmt = $pdo->query('SELECT * FROM prueba');
-    while ($fila=$stmt->fetch()) {
-        echo "<br/>Leyendo fila {$fila['id]} con contenido {$fila['contenido']}";
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    foreach ($stmt as $fila) {
+        echo "<br>Leyendo fila " . htmlspecialchars($fila['contenido'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
     }
 
 } catch (PDOException $e) {
