@@ -35,8 +35,9 @@ try {
     $fila = $stmt->fetch();
     echo "Conectado correctamente. Hora del servidor: " . $fila['fecha_actual'];
     $stmt = $pdo->query('SELECT * FROM prueba');
-    $fila = $stmt->fetch();
-    echo $fila;
+    while($fila=$stmt->fetch() {
+          echo "<br/>$fila";
+    }
 } catch (PDOException $e) {
     error_log('Error de conexión PDO: ' . $e->getMessage());
     echo "Error al conectar con la base de datos: " . htmlspecialchars($e->getMessage());
