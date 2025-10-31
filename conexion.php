@@ -37,7 +37,7 @@ try {
     $stmt = $pdo->query('SELECT * FROM prueba');
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
     foreach ($stmt as $fila) {
-        echo "<br>Leyendo fila " . htmlspecialchars($fila['contenido'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+        echo "<br>Leyendo fila " . $fila['id] . " con contenido " . htmlspecialchars($fila['contenido'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
     }
 
 } catch (PDOException $e) {
